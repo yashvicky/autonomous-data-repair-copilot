@@ -1,0 +1,25 @@
+[project]
+name = "autonomous-data-repair-copilot"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "duckdb>=1.5.6",
+    "polars>=2.0.0",
+    "pydantic>=2.14.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
