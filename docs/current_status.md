@@ -31,24 +31,24 @@ implementing the data-repair engine.
   documented in [architecture.md](architecture.md).
   Evidence: [merged PR #3](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/3).
 
+- **DR-004 — Current project status: COMPLETE.**
+  Handoff document merged in [PR #4](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/4).
+
 ## In Progress
 
-**DR-004 — Current project status: IN PROGRESS / AWAITING REVIEW.**
+**DR-005 — Development tooling: IN PROGRESS / AWAITING REVIEW.**
 
-Create this concise handoff document so the founder or a development agent
-can resume work without reconstructing previous conversations.
+Python 3.12, uv, Polars, DuckDB, Pydantic, pytest, Ruff, a committed
+lockfile, and one environment smoke test. See README for setup and checks.
+Completion requires passing verification and human review/merge.
 
-DR-004 is complete only after this file is reviewed and merged into main.
+## Next Task
 
-## Next Approved Task
+**DR-006 — CSV loader preserving raw values.**
 
-**DR-005 — Development tooling.**
-
-Planned: Python environment, uv, project dependencies, pytest, and Ruff.
-
-Do not begin DR-005 until DR-004 has been reviewed and merged.
-After merge, update this handoff to record DR-004 as complete; mark DR-005
-active only when it is actually started or assigned.
+Do not begin until DR-005 is reviewed, merged, and the task is assigned.
+Preserve identifiers, leading zeros, and source data; implementation belongs
+to DR-006 rather than the tooling task.
 
 ## Product State
 
@@ -81,7 +81,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-None reported. DR-005 is gated on DR-004 review and merge.
+None reported. DR-005 awaits review and merge.
 
 ## Current Risks
 
