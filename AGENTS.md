@@ -269,6 +269,23 @@ Do not hide failing tests.
 
 ---
 
+## 6a. Acceptance Gates
+
+For each non-trivial implementation task, write a task-specific gate ledger
+before implementation using `docs/templates/acceptance-gates.md`. Map each
+assigned acceptance criterion to an observable outcome, a meaningful check,
+and evidence. Store it under `docs/gates/<task-id>.md` on the task branch
+and link it in the PR. Do not invent requirements or mark planned work done.
+
+Review checks and called scripts before running them. For automated gates,
+record the command, exit status, and actual result; for manual gates, record
+the reviewer and evidence. Re-run relevant checks on the final change. Failed,
+unverified, or abandoned gates require an honest handoff, not completion.
+Human approval and merge fences remain in force. See
+`docs/acceptance-gates.md` for the workflow and security limitations.
+
+---
+
 ## 7. Deliverables
 
 For each implementation task, produce:
