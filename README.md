@@ -78,3 +78,19 @@ Samples are the first five distinct non-null values by default; set
 `sample_limit` to change the cap, or zero to omit samples. Samples can
 contain sensitive data, so handle profile output accordingly. The profiler
 reads the full frame and computes exact distinct values in memory.
+
+## Missing-value detector
+
+`detect_missing(frame)` returns a Pydantic report with zero-based data-row
+positions. True nulls and the exact empty string are missing by default. Pass
+`missing_markers=("", "NULL")` to configure exact text matches; there is no
+trimming, case folding, or implicit conversion. The input is never changed.
+
+Opt specific columns into zero inspection via `zero_check_columns=("amount",)`.
+Only numeric zero and the exact string `"0"` are considered. If a selected
+column contains both a missing value and a zero, the report flags **suspected**
+ambiguity for human review; it does not say which zeros are missing or repair
+anything. Missing markers take precedence if `"0"` is configured as missing.
+Row indices exclude the header and are zero-based, not CSV line numbers.
+Reports hold all matching indices in memory and may expose sensitive row
+locations; protect them accordingly.
