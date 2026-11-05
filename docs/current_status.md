@@ -1,6 +1,6 @@
 # Current Project Status
 
-Last updated: 2026-10-26 (America/Chicago)
+Last updated: 2026-11-04 (America/Chicago)
 
 ## Project
 
@@ -40,18 +40,20 @@ implementing the data-repair engine.
 
 ## In Progress
 
-Acceptance-gate workflow documentation is being prepared for human review.
+**DR-006 — CSV loader: IN PROGRESS / AWAITING REVIEW.**
+
+The implementation and synthetic tests are prepared for human review.
+See [DR-006 gates](gates/DR-006.md).
 
 ## Next Task
 
 **DR-006 — CSV loader preserving raw values.**
 
-Start only when assigned. First define its gates against its approved
-acceptance criteria; preserve identifiers, leading zeros, and source data.
+DR-006 is the active task. Do not mark complete until reviewed and merged.
 
 ## Product State
 
-Product implementation has not started yet. There is no CSV loader,
+A CSV loader is proposed in the DR-006 branch and awaits review. There is no
 profiler, data-quality detector, repair engine, Jev or Grok runtime
 integration, FastAPI backend, frontend, or production deployment.
 
@@ -80,7 +82,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-No product blocker reported; gate workflow awaits review and merge.
+No product blocker reported; DR-006 awaits human review and merge.
 
 ## Current Risks
 
