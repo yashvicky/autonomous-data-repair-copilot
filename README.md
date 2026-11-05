@@ -216,3 +216,20 @@ protection depend on the OS. These files may contain sensitive data; reports
 are caller-attested, not authenticated or tamper-proof. CSV values are preserved
 without spreadsheet formula escaping; opening untrusted CSV in spreadsheet
 software may interpret formulas. This is not a production storage service.
+
+## Synthetic evaluation fixture
+
+`evals/datasets/clean_v1.csv` contains six fictional records using reserved
+example.com addresses. `corrupted_v1.csv` contains four deterministic cell
+edits and a duplicate row. `evals/ground_truth/synthetic_v1.json` separately
+records the injected changes, duplicate groups, zero-based data-row indices,
+and SHA-256 hashes. Ground truth labels injected changes only, not every
+possible quality issue or implied automatic repair.
+
+`generate_fixture(clean_bytes)` in `data_repair_copilot.evaluation.fixtures`
+returns the corrupted CSV and ground-truth JSON bytes without writing files.
+`uv run --locked pytest -q tests/test_eval_datasets.py` verifies regeneration
+against committed fixtures and checks the labels against the data. Git
+attributes preserve fixture bytes across platforms. The tiny synthetic set is
+a regression fixture, not evidence of production accuracy or representative
+customer data. Do not replace these fixtures with real customer data.

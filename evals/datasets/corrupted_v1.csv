@@ -1,0 +1,8 @@
+customer_id,email,signup_date,zip,status
+001,customer001@example.com,2024-01-15,00501,Active
+002,customer002@example.com,2024-02-20,10001, active 
+003,customer003@example.com,2024-03-12,2110,Pending
+004,customer004@example.com,2024-02-30,73301,Active
+005,,2024-05-08,85001,Pending
+006,customer006@example.com,2024-06-18,98101,Active
+001,customer001@example.com,2024-01-15,00501,Active

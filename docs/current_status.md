@@ -82,24 +82,28 @@ implementing the data-repair engine.
   Founder reported 41 tests and Ruff passing on Windows. Authentication and
   tamper-evident durable logging remain future work.
 
+- **DR-016 — Clean CSV export: COMPLETE for local bundle scope.**
+  Merged in [PR #18](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/18).
+  Founder reported 44 tests and Ruff passing on Windows.
+
 ## In Progress
 
-**DR-016 — Clean CSV export: AWAITING REVIEW.**
+**DR-017 — Synthetic evaluation datasets: AWAITING REVIEW.**
 
-A local bundle with separate original, cleaned CSV, and report is proposed.
-See [acceptance gates](gates/DR-016.md). Production storage is not implemented.
+Clean and deterministically corrupted CSV fixtures with separate ground truth
+are proposed. See [acceptance gates](gates/DR-017.md).
 
 ## Next Task
 
-**DR-017 — Clean and corrupted evaluation datasets**, after DR-016 review
-and merge and assignment of DR-017.
+**DR-018 — Precision/recall evaluator**, after DR-017 review and merge
+and assignment of DR-018.
 
 ## Product State
 
 CSV loader, profiler, detectors, issue schema, preview, in-memory decisions,
-and local audit export are merged. CSV bundle export is under review. There is
-no persistent audited service, model integration, frontend, production deployment,
-or unattended development routine.
+local audit and CSV bundle export are merged. Synthetic evaluation datasets
+are under review. There is no persistent audited service, model integration,
+frontend, production deployment, or unattended development routine.
 
 ## Locked Architectural Decisions
 
@@ -124,7 +128,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-016 awaits founder review and merge.
+DR-017 awaits founder review and merge.
 
 ## Current Risks
 
