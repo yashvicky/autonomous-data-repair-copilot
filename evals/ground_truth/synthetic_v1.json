@@ -1,0 +1,53 @@
+{
+  "clean_rows": 6,
+  "clean_sha256": "56a087bbc1fcdeb9498a39042f6c85cbfa3c36c1d29fc0c9215ca70022d27c8d",
+  "corrupted_rows": 7,
+  "corrupted_sha256": "7d638398a2b4c8e196035d01928b1c7de3cb557f327d7ec04795c9ee3d24ffb4",
+  "description": "Synthetic injected changes only; row indices exclude header and start at zero.",
+  "issues": [
+    {
+      "column": "status",
+      "corrupted": " active ",
+      "kind": "category_variant",
+      "original": "Active",
+      "row_index": 1
+    },
+    {
+      "column": "zip",
+      "corrupted": "2110",
+      "kind": "invalid_zip_format",
+      "original": "02110",
+      "row_index": 2
+    },
+    {
+      "column": "signup_date",
+      "corrupted": "2024-02-30",
+      "kind": "invalid_iso_date",
+      "original": "2024-04-30",
+      "row_index": 3
+    },
+    {
+      "column": "email",
+      "corrupted": "",
+      "kind": "missing_value",
+      "original": "customer005@example.com",
+      "row_index": 4
+    },
+    {
+      "kind": "exact_duplicate_row",
+      "row_indices": [
+        0,
+        6
+      ]
+    },
+    {
+      "column": "customer_id",
+      "kind": "duplicate_id",
+      "row_indices": [
+        0,
+        6
+      ]
+    }
+  ],
+  "schema_version": 1
+}

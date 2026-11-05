@@ -1,0 +1,2 @@
+evals/datasets/*.csv -text
+evals/ground_truth/*.json -text
