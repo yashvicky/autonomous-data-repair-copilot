@@ -1,6 +1,6 @@
 # Current Project Status
 
-Last updated: 2026-11-04 (America/Chicago)
+Last updated: 2026-11-05 (UTC)
 
 ## Project
 
@@ -86,23 +86,26 @@ implementing the data-repair engine.
   Merged in [PR #18](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/18).
   Founder reported 44 tests and Ruff passing on Windows.
 
+- **DR-017 — Synthetic evaluation datasets: COMPLETE.**
+  Merged in [PR #19](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/19).
+  Founder reported 47 tests and Ruff passing on Windows.
+
 ## In Progress
 
-**DR-017 — Synthetic evaluation datasets: AWAITING REVIEW.**
+**DR-018 — Precision/recall evaluator: AWAITING REVIEW.**
 
-Clean and deterministically corrupted CSV fixtures with separate ground truth
-are proposed. See [acceptance gates](gates/DR-017.md).
+Exact finding counts and per-detector metrics are proposed. See
+[acceptance gates](gates/DR-018.md).
 
 ## Next Task
 
-**DR-018 — Precision/recall evaluator**, after DR-017 review and merge
-and assignment of DR-018.
+**DR-019 — False-repair metric**, after DR-018 review and merge and assignment.
 
 ## Product State
 
 CSV loader, profiler, detectors, issue schema, preview, in-memory decisions,
-local audit and CSV bundle export are merged. Synthetic evaluation datasets
-are under review. There is no persistent audited service, model integration,
+local audit and CSV bundle export and synthetic evaluation datasets are merged.
+The precision/recall evaluator is under review. There is no persistent audited service, model integration,
 frontend, production deployment, or unattended development routine.
 
 ## Locked Architectural Decisions
@@ -128,7 +131,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-017 awaits founder review and merge.
+DR-018 awaits founder review and merge; Windows verification is pending.
 
 ## Current Risks
 
