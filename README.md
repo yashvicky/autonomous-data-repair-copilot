@@ -164,3 +164,19 @@ A preview is a point-in-time comparison, not approval, a dataset identity, or
 a repaired dataset. Before a later apply workflow, verify the dataset identity,
 version, and current values and obtain required approval. Output can contain
 sensitive source and proposed values. This feature does not apply changes.
+
+## In-memory approve/reject workflow
+
+`create_review(frame, proposals)` captures a preview and a SHA-256 fingerprint
+of the full string/null dataframe, schema, and proposed changes.
+`apply_decisions(frame, review, decisions)` requires one explicit `approve` or
+`reject` decision per change, checks the fingerprint and preview, and returns a
+separate dataframe plus in-memory decision records for both outcomes. No source
+file is written. Stale content, altered preview, or incomplete decisions fail.
+
+This is a local foundation only: records disappear unless the caller saves them;
+there is no persistent audit, reviewer identity or authentication. The unkeyed
+fingerprint detects accidental content drift, not forgery or authorization;
+it does not bind external dataset identity. Do not use this as a production
+approval boundary. Enforce identity, durable logging, authorization, and
+revalidation before exposing it to customer data. Reports contain values.
