@@ -49,6 +49,7 @@ def test_export_bundle(tmp_path: Path) -> None:
     assert saved == report and frame["value"].to_list() == ["old, text", "keep"]
 
 
+@pytest.mark.regression
 def test_invalid_inputs(tmp_path: Path) -> None:
     source, raw, frame, review, outcome, report = setup_bundle(tmp_path)
     target = tmp_path / "not-created"
@@ -69,6 +70,7 @@ def test_invalid_inputs(tmp_path: Path) -> None:
     assert not target.exists() and source.read_bytes() == raw
 
 
+@pytest.mark.regression
 def test_no_overwrite_and_null(tmp_path: Path) -> None:
     source, raw, frame, review, outcome, report = setup_bundle(tmp_path)
     existing = tmp_path / "existing"

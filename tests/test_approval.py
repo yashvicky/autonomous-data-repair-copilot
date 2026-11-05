@@ -9,6 +9,7 @@ from data_repair_copilot.repairs.approval import Decision, apply_decisions, crea
 from data_repair_copilot.repairs.preview import CellProposal
 
 
+@pytest.mark.regression
 def test_approved_copy_and_rejected_log() -> None:
     frame = pl.DataFrame({"id": ["001", "002"], "value": ["bad", "old"]})
     review = create_review(
@@ -31,6 +32,7 @@ def test_approved_copy_and_rejected_log() -> None:
     ] == [(0, "approve", "bad", "good"), (1, "reject", "old", "new")]
 
 
+@pytest.mark.regression
 def test_fail_closed() -> None:
     frame = pl.DataFrame({"id": ["001"], "value": ["bad"]})
     proposals = [CellProposal(row_index=0, column="value", proposed_value="good")]

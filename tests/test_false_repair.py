@@ -9,6 +9,7 @@ from data_repair_copilot.repairs.approval import Decision, apply_decisions, crea
 from data_repair_copilot.repairs.preview import CellProposal
 
 
+@pytest.mark.regression
 def test_mixed_changes() -> None:
     before = pl.DataFrame({"id": ["001", "002", "003"], "zip": ["111", "222", "00333"]})
     after = pl.DataFrame({"id": ["001", "002", "003"], "zip": ["00111", "99999", "00333"]})
@@ -23,6 +24,7 @@ def test_mixed_changes() -> None:
     assert (result.changed_cells, result.false_repairs, result.false_repair_rate) == (3, 2, 2 / 3)
 
 
+@pytest.mark.regression
 def test_no_changes() -> None:
     before = pl.DataFrame({"value": ["wrong", None, ""]}, schema={"value": pl.String})
     truth = pl.DataFrame({"value": ["correct", "", ""]})
