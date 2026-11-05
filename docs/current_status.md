@@ -98,24 +98,35 @@ implementing the data-repair engine.
   Merged in [PR #21](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/21).
   Founder reported the expected Windows test and Ruff results.
 
+- **DR-020 — Regression test suite: COMPLETE.**
+  Merged in [PR #22](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/22).
+  Founder screenshot shows 9 regression tests, 55 total tests, and Ruff passed on Windows.
+
 ## In Progress
 
-**DR-020 — Regression test suite: AWAITING REVIEW.**
+**DR-022 — Decision provider interface: AWAITING REVIEW.**
 
-A selectable regression suite and bug-fix workflow are proposed. See
-[acceptance gates](gates/DR-020.md).
+The proposed interface includes a human-review stub and fail-closed provider
+validation. See [acceptance gates](gates/DR-022.md).
+
+**DR-021 — Latency/cost per 100K rows: PARTIAL; AI COMPARISON DEFERRED.**
+
+The founder deferred the AI comparison until after provider integration.
+The local baseline is proposed in [PR #23](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/23),
+which is not yet merged. DR-021 is not complete.
 
 ## Next Task
 
-**DR-021 — Latency/cost per 100K rows**, after DR-020 review and merge and assignment.
+**DR-023 — Candidate generation baseline**, after DR-022 review and merge and
+assignment. Revisit the DR-021 AI comparison after provider integration and an
+approved, comparable workload and any required spend authorization.
 
 ## Product State
 
-The CSV loader, profiler, detectors, issue schema, preview, in-memory decisions,
-local audit and CSV bundle export, synthetic datasets, detection evaluator,
-and false-repair metric are merged. The regression suite is under review.
-There is no persistent audited service, model integration, frontend, or
-production deployment.
+CSV loader, profiler, detectors, issue schema, review, local exports, synthetic
+evaluation data and metrics, and the regression suite are merged. A local
+benchmark and a decision-provider interface are under review. There is no real
+model integration, persistent audited service, frontend, or production deployment.
 
 ## Locked Architectural Decisions
 
@@ -140,7 +151,8 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-020 awaits founder review and merge; Windows verification is pending.
+DR-022 and the DR-021 local baseline await founder review and merge.
+The DR-021 AI comparison is deferred; no AI cost or latency has been measured.
 
 ## Current Risks
 
