@@ -102,31 +102,38 @@ implementing the data-repair engine.
   Merged in [PR #22](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/22).
   Founder screenshot shows 9 regression tests, 55 total tests, and Ruff passed on Windows.
 
+- **DR-022 — Decision provider interface: COMPLETE for interface and stub.**
+  Merged in [PR #24](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/24).
+  Founder reported 62 tests and Ruff passed on Windows after PRs #23 and #24.
+  The Jev adapter is not yet implemented.
+
 ## In Progress
 
-**DR-022 — Decision provider interface: AWAITING REVIEW.**
+**DR-023 — Candidate generation baseline: AWAITING REVIEW.**
 
-The proposed interface includes a human-review stub and fail-closed provider
-validation. See [acceptance gates](gates/DR-022.md).
+Exact blocking proposes record pairs for later review. See
+[acceptance gates](gates/DR-023.md).
 
 **DR-021 — Latency/cost per 100K rows: PARTIAL; AI COMPARISON DEFERRED.**
 
+The local benchmark was merged in [PR #23](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/23).
 The founder deferred the AI comparison until after provider integration.
-The local baseline is proposed in [PR #23](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/23),
-which is not yet merged. DR-021 is not complete.
+DR-021 remains incomplete; no AI cost or latency has been measured.
 
 ## Next Task
 
-**DR-023 — Candidate generation baseline**, after DR-022 review and merge and
-assignment. Revisit the DR-021 AI comparison after provider integration and an
-approved, comparable workload and any required spend authorization.
+**DR-024 — Jev decision call for entity match**, after DR-023 review and merge
+and explicit owner assignment. It is owner-assigned in the tracker; do not
+start it independently. Revisit the DR-021 AI comparison after provider
+integration and approved workload and any required spend authorization.
 
 ## Product State
 
 CSV loader, profiler, detectors, issue schema, review, local exports, synthetic
-evaluation data and metrics, and the regression suite are merged. A local
-benchmark and a decision-provider interface are under review. There is no real
-model integration, persistent audited service, frontend, or production deployment.
+evaluation data and metrics, regression suite, local benchmark, and the
+human-review decision interface are merged. Candidate generation is under
+review. There is no real model integration, persistent audited service,
+frontend, or production deployment.
 
 ## Locked Architectural Decisions
 
@@ -151,8 +158,8 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-022 and the DR-021 local baseline await founder review and merge.
-The DR-021 AI comparison is deferred; no AI cost or latency has been measured.
+DR-023 awaits founder review and merge; Windows verification is pending.
+DR-021 AI comparison remains deferred until after provider integration.
 
 ## Current Risks
 
