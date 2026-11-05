@@ -107,32 +107,35 @@ implementing the data-repair engine.
   Founder reported 62 tests and Ruff passed on Windows after PRs #23 and #24.
   The Jev adapter is not yet implemented.
 
+- **DR-023 — Candidate generation baseline: COMPLETE.**
+  Merged in [PR #25](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/25).
+  Founder reported 66 tests and Ruff passed on Windows.
+
 ## In Progress
 
-**DR-023 — Candidate generation baseline: AWAITING REVIEW.**
+**DR-024 — Jev entity-match adapter: PARTIAL / AWAITING REVIEW.**
 
-Exact blocking proposes record pairs for later review. See
-[acceptance gates](gates/DR-023.md).
+The proposed standalone adapter is tested with simulated responses. A live
+call is not verified and requires approved credentials, synthetic data and
+spending authorization. See [acceptance gates](gates/DR-024.md).
 
 **DR-021 — Latency/cost per 100K rows: PARTIAL; AI COMPARISON DEFERRED.**
 
-The local benchmark was merged in [PR #23](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/23).
-The founder deferred the AI comparison until after provider integration.
-DR-021 remains incomplete; no AI cost or latency has been measured.
+The local baseline was merged in [PR #23](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/23).
+The AI comparison remains deferred until after provider integration and an
+approved comparable workload. No AI cost or latency has been measured.
 
 ## Next Task
 
-**DR-024 — Jev decision call for entity match**, after DR-023 review and merge
-and explicit owner assignment. It is owner-assigned in the tracker; do not
-start it independently. Revisit the DR-021 AI comparison after provider
-integration and approved workload and any required spend authorization.
+**DR-025 — Decision ledger**, after DR-024 is resolved and explicitly assigned.
+Do not start it independently.
 
 ## Product State
 
-CSV loader, profiler, detectors, issue schema, review, local exports, synthetic
-evaluation data and metrics, regression suite, local benchmark, and the
-human-review decision interface are merged. Candidate generation is under
-review. There is no real model integration, persistent audited service,
+CSV loader, profiler, detectors, review, local exports, synthetic evaluation,
+regression suite, local benchmark, decision interface and candidate generation
+are merged. A standalone Jev adapter is under review and not live-verified or
+wired into the product workflow. There is no persistent audited service,
 frontend, or production deployment.
 
 ## Locked Architectural Decisions
@@ -158,7 +161,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-023 awaits founder review and merge; Windows verification is pending.
+DR-024 awaits review and live verification; no live call is authorized yet.
 DR-021 AI comparison remains deferred until after provider integration.
 
 ## Current Risks
