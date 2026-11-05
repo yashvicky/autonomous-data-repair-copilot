@@ -94,3 +94,14 @@ anything. Missing markers take precedence if `"0"` is configured as missing.
 Row indices exclude the header and are zero-based, not CSV line numbers.
 Reports hold all matching indices in memory and may expose sensitive row
 locations; protect them accordingly.
+
+## Exact duplicate detector
+
+`detect_duplicates(frame, id_column="id")` reports groups of zero-based data-row
+indices for exact duplicate rows and, when explicitly selected, duplicate IDs.
+Groups contain every matching row, including the first. Row comparisons cover
+all columns and treat nulls as equal; ID groups exclude null and empty-string
+IDs. Whitespace and case are not normalized and `001` differs from `1`.
+No row is deleted or changed. Grouping follows Polars equality semantics and
+keeps groups and indices in input order. The detector groups data in memory;
+reports include potentially sensitive row locations.

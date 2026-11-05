@@ -47,23 +47,26 @@ implementing the data-repair engine.
   Merged in [PR #9](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/9).
   Founder supplied Windows screenshot showing 12 tests and Ruff passing.
 
+- **DR-008 — Missing/null detector: COMPLETE.**
+  Merged in [PR #10](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/10).
+  Linux tests passed; Windows results have not been provided.
+
 ## In Progress
 
-**DR-008 — Missing/null detector: AWAITING REVIEW.**
+**DR-009 — Exact duplicate detector: AWAITING REVIEW.**
 
-A deterministic detector and synthetic tests are proposed on the DR-008 branch.
-See [acceptance gates](gates/DR-008.md). Founder review and merge are pending.
+Detects exact duplicate rows and selected duplicate IDs without modifying data.
+See [acceptance gates](gates/DR-009.md). Founder review and merge are pending.
 
 ## Next Task
 
-**DR-009 — Exact duplicate detector**, after DR-008 is reviewed and merged
-and DR-009 is assigned.
+Choose the next tracker task after DR-009 is reviewed and merged.
 
 ## Product State
 
-CSV loader and column profiler are merged. The missing detector is under review.
-There is no repair engine, model integration, frontend, or production deployment.
-No unattended development routine is currently established.
+CSV loader, profiler, and missing detector are merged. Duplicate detection is
+under review. There is no repair engine, model integration, frontend, or
+production deployment. No unattended development routine is established.
 
 ## Locked Architectural Decisions
 
@@ -88,7 +91,8 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-008 awaits founder review and merge.
+DR-009 awaits founder review and merge. Windows verification of DR-008
+has not been independently confirmed.
 
 ## Current Risks
 
