@@ -151,3 +151,16 @@ list for an issue not tied to specific rows. Unknown fields are rejected.
 Severity, evidence, and recommendations are supplied by the caller and are
 not validated as fact or permission to repair. Evidence can contain sensitive
 data. Existing detector results are not yet automatically converted to issues.
+
+## Read-only repair preview
+
+`preview_changes(frame, proposals)` accepts `CellProposal` objects specifying a
+zero-based data-row index, a column, and a proposed string or null value. It
+returns a `RepairPreview` with before and after values without changing the
+frame or writing a file. Only string or null columns are supported. Duplicate
+target cells, missing columns, and out-of-range rows are rejected.
+
+A preview is a point-in-time comparison, not approval, a dataset identity, or
+a repaired dataset. Before a later apply workflow, verify the dataset identity,
+version, and current values and obtain required approval. Output can contain
+sensitive source and proposed values. This feature does not apply changes.

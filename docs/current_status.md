@@ -64,22 +64,27 @@ implementing the data-repair engine.
   Merged in [PR #13](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/13).
   Founder reported 28 tests and Ruff passing on Windows.
 
+- **DR-012 — Issue object schema: COMPLETE.**
+  Merged in [PR #14](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/14).
+  Founder reported 31 tests and Ruff passing on Windows.
+
 ## In Progress
 
-**DR-012 — Issue object schema: AWAITING REVIEW.**
+**DR-013 — Before/after preview engine: AWAITING REVIEW.**
 
-A validated issue schema is proposed. See [acceptance gates](gates/DR-012.md).
+A read-only CSV cell proposal preview is proposed. See
+[acceptance gates](gates/DR-013.md). It does not apply or approve repairs.
 
 ## Next Task
 
-**DR-013 — Before/after preview engine**, after DR-012 review and merge
-and assignment of DR-013.
+**DR-014 — Approve/reject workflow**, after DR-013 review and merge
+and assignment of DR-014.
 
 ## Product State
 
-CSV loader, profiler, and missing, duplicate, format, and category detectors
-are merged. Issue schema is under review. There is no repair engine, model
-integration, frontend, production deployment, or unattended development routine.
+CSV loader, profiler, detectors, and issue schema are merged. The preview
+engine is under review. There is no repair execution, model integration,
+frontend, production deployment, or unattended development routine.
 
 ## Locked Architectural Decisions
 
@@ -104,7 +109,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-012 awaits founder review and merge.
+DR-013 awaits founder review and merge.
 
 ## Current Risks
 
