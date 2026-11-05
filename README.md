@@ -180,3 +180,20 @@ fingerprint detects accidental content drift, not forgery or authorization;
 it does not bind external dataset identity. Do not use this as a production
 approval boundary. Enforce identity, durable logging, authorization, and
 revalidation before exposing it to customer data. Reports contain values.
+
+## Audit report export
+
+`build_audit_report(review, records, metadata)` creates a structured report
+for every approved or rejected decision. For each change, supply a
+`DecisionMetadata` with `reason`, `approver`, and `confidence` (a number
+from 0 to 1, or `None` if unavailable). The report includes the original and
+proposed values, decision, row and column, review fingerprint, and UTC creation
+time. A rejected replacement is a proposal, not an applied value.
+
+`export_audit_json(report, path)` creates a new UTF-8 JSON file and refuses
+to overwrite an existing path. These reports may contain sensitive data;
+control their storage and access. The function does not authenticate reviewers,
+verify the caller-provided reason/confidence, or provide tamper-evident or
+durable transactional logging. An I/O failure can leave a partial new file.
+File permissions depend on the operating system. This is a local export, not
+a production audit trail. Never treat model confidence as measured accuracy.
