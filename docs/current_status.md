@@ -98,24 +98,30 @@ implementing the data-repair engine.
   Merged in [PR #21](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/21).
   Founder reported the expected Windows test and Ruff results.
 
+- **DR-020 — Regression test suite: COMPLETE.**
+  Merged in [PR #22](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/22).
+  Founder supplied Windows screenshot: 9 regression tests, 55 total tests,
+  and Ruff passed.
+
 ## In Progress
 
-**DR-020 — Regression test suite: AWAITING REVIEW.**
+**DR-021 — Latency/cost per 100K rows: BLOCKED / PARTIAL.**
 
-A selectable regression suite and bug-fix workflow are proposed. See
-[acceptance gates](gates/DR-020.md).
+A local synthetic benchmark is proposed. A local-versus-AI comparison remains
+unmet pending an approved comparable workload and AI benchmark arrangements.
+See [acceptance gates](gates/DR-021.md) and [benchmark report](../evals/benchmarks/DR-021-local.md).
 
 ## Next Task
 
-**DR-021 — Latency/cost per 100K rows**, after DR-020 review and merge and assignment.
+**DR-022 — Decision provider interface**, after DR-021 is resolved and the task
+is assigned. Do not begin it independently.
 
 ## Product State
 
 The CSV loader, profiler, detectors, issue schema, preview, in-memory decisions,
-local audit and CSV bundle export, synthetic datasets, detection evaluator,
-and false-repair metric are merged. The regression suite is under review.
-There is no persistent audited service, model integration, frontend, or
-production deployment.
+local audit and CSV bundle export, synthetic datasets, evaluation metrics, and
+regression suite are merged. A local benchmark is under review. There is no
+persistent audited service, model integration, frontend, or production deployment.
 
 ## Locked Architectural Decisions
 
@@ -140,7 +146,8 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-020 awaits founder review and merge; Windows verification is pending.
+DR-021 lacks an approved comparable AI workload and measured AI cost/latency.
+The local benchmark is awaiting review; Windows verification is pending.
 
 ## Current Risks
 
