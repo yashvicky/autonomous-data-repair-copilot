@@ -60,23 +60,26 @@ implementing the data-repair engine.
   Merged in [PR #12](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/12).
   Founder reported 24 tests and Ruff passing on Windows.
 
+- **DR-011 — Category inconsistency detector: COMPLETE.**
+  Merged in [PR #13](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/13).
+  Founder reported 28 tests and Ruff passing on Windows.
+
 ## In Progress
 
-**DR-011 — Category inconsistency detector: AWAITING REVIEW.**
+**DR-012 — Issue object schema: AWAITING REVIEW.**
 
-A read-only detector groups case/whitespace variants and explicitly supplied
-aliases. See [acceptance gates](gates/DR-011.md).
+A validated issue schema is proposed. See [acceptance gates](gates/DR-012.md).
 
 ## Next Task
 
-**DR-012 — Issue object schema**, after DR-011 is reviewed and merged
-and DR-012 is assigned.
+**DR-013 — Before/after preview engine**, after DR-012 review and merge
+and assignment of DR-013.
 
 ## Product State
 
-CSV loader, profiler, missing, duplicate, and format detectors are merged.
-Category detection is under review. No repair engine, model integration,
-frontend, production deployment, or unattended development routine exists.
+CSV loader, profiler, and missing, duplicate, format, and category detectors
+are merged. Issue schema is under review. There is no repair engine, model
+integration, frontend, production deployment, or unattended development routine.
 
 ## Locked Architectural Decisions
 
@@ -101,7 +104,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-011 awaits founder review and merge.
+DR-012 awaits founder review and merge.
 
 ## Current Risks
 
