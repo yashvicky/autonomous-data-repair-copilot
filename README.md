@@ -138,3 +138,16 @@ group additional variants. Conflicting normalized aliases and alias chains are
 rejected. Alias mapping is a comparison rule, not a verified equivalence; review
 the evidence. No data is changed or repaired. Raw values and row locations in
 the report can be sensitive; grouping all values uses memory.
+
+## Issue schema
+
+`Issue` in `data_repair_copilot.models.issue` is a Pydantic model requiring
+`issue_type`, `severity` (`low`, `medium`, `high`, or `critical`), a non-empty
+list of evidence strings, `affected_rows`, and a recommendation string. Text
+fields and evidence entries cannot be blank. Row indices are distinct
+non-negative integers, zero-based and excluding the CSV header; use an empty
+list for an issue not tied to specific rows. Unknown fields are rejected.
+
+Severity, evidence, and recommendations are supplied by the caller and are
+not validated as fact or permission to repair. Evidence can contain sensitive
+data. Existing detector results are not yet automatically converted to issues.
