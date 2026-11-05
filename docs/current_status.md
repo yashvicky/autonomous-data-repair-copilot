@@ -1,6 +1,6 @@
 # Current Project Status
 
-Last updated: 2026-10-14 (America/Chicago)
+Last updated: 2026-10-26 (America/Chicago)
 
 ## Project
 
@@ -34,21 +34,20 @@ implementing the data-repair engine.
 - **DR-004 — Current project status: COMPLETE.**
   Handoff document merged in [PR #4](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/4).
 
+- **DR-005 — Development tooling: COMPLETE.**
+  Merged in [PR #5](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/5).
+  Linux verification is recorded in the PR; founder reports Windows checks passed.
+
 ## In Progress
 
-**DR-005 — Development tooling: IN PROGRESS / AWAITING REVIEW.**
-
-Python 3.12, uv, Polars, DuckDB, Pydantic, pytest, Ruff, a committed
-lockfile, and one environment smoke test. See README for setup and checks.
-Completion requires passing verification and human review/merge.
+Acceptance-gate workflow documentation is being prepared for human review.
 
 ## Next Task
 
 **DR-006 — CSV loader preserving raw values.**
 
-Do not begin until DR-005 is reviewed, merged, and the task is assigned.
-Preserve identifiers, leading zeros, and source data; implementation belongs
-to DR-006 rather than the tooling task.
+Start only when assigned. First define its gates against its approved
+acceptance criteria; preserve identifiers, leading zeros, and source data.
 
 ## Product State
 
@@ -81,7 +80,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-None reported. DR-005 awaits review and merge.
+No product blocker reported; gate workflow awaits review and merge.
 
 ## Current Risks
 
