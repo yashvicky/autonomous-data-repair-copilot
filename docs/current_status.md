@@ -51,22 +51,29 @@ implementing the data-repair engine.
   Merged in [PR #10](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/10).
   Linux tests passed; Windows results have not been provided.
 
+- **DR-009 — Exact duplicate detector: COMPLETE.**
+  Merged in [PR #11](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/11).
+  Founder supplied Windows screenshot showing 20 tests and Ruff passing,
+  including the DR-008 tests.
+
 ## In Progress
 
-**DR-009 — Exact duplicate detector: AWAITING REVIEW.**
+**DR-010 — Invalid format detector: AWAITING REVIEW.**
 
-Detects exact duplicate rows and selected duplicate IDs without modifying data.
-See [acceptance gates](gates/DR-009.md). Founder review and merge are pending.
+A read-only format-policy detector and synthetic tests are proposed on the
+DR-010 branch. See [acceptance gates](gates/DR-010.md).
 
 ## Next Task
 
-Choose the next tracker task after DR-009 is reviewed and merged.
+**DR-011 — Category inconsistency detector**, after DR-010 review and merge
+and assignment of DR-011.
 
 ## Product State
 
-CSV loader, profiler, and missing detector are merged. Duplicate detection is
-under review. There is no repair engine, model integration, frontend, or
-production deployment. No unattended development routine is established.
+CSV loader, profiler, missing detector, and exact duplicate detector are merged.
+Format-policy detection is under review. There is no repair engine, model
+integration, frontend, or production deployment. No unattended development
+routine is established.
 
 ## Locked Architectural Decisions
 
@@ -91,8 +98,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-009 awaits founder review and merge. Windows verification of DR-008
-has not been independently confirmed.
+DR-010 awaits founder review and merge.
 
 ## Current Risks
 

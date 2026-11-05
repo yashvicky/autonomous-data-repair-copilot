@@ -105,3 +105,22 @@ IDs. Whitespace and case are not normalized and `001` differs from `1`.
 No row is deleted or changed. Grouping follows Polars equality semantics and
 keeps groups and indices in input order. The detector groups data in memory;
 reports include potentially sensitive row locations.
+
+## Format-policy detector
+
+`detect_invalid_formats(frame, column_formats={"email": "email", "zip": "us_zip"})`
+checks only the specified columns and returns mismatch row positions (zero-based
+data-row indices) and reason codes. It never changes data or outputs raw values.
+Accepted policies are deliberately narrow:
+
+- `email`: common ASCII mailbox syntax with a dotted domain, up to 254 characters;
+  this is not a complete email standard or deliverability check.
+- `iso_date`: `YYYY-MM-DD`, requiring a real calendar date.
+- `us_phone`: ten digits, `DDD-DDD-DDDD`, or `(DDD) DDD-DDDD`.
+- `us_zip`: five ASCII digits or ZIP+4 with a hyphen.
+
+Other legitimate formats may be flagged. True nulls and exact empty strings are
+skipped; pass exact `missing_markers` to change the string markers. Non-string
+values are reported separately; whitespace is not trimmed. A mismatch is not
+proof an address, number, or postal code is invalid. No repair is performed.
+Reports retain matching row positions in memory and may be sensitive.
