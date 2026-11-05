@@ -301,3 +301,9 @@ A shared blocking key is only a reason to consider two records: it does not
 confirm they represent the same entity. Exact blocking can miss true matches
 when keys differ; no recall has been established. This function makes no AI
 calls, approval decisions, merges, or repairs.
+
+## Decision ledger (partial)
+
+The in-memory Jev decision wrapper records metadata with unknown cost and a
+review-required flag. See [decision ledger](docs/decision-ledger.md) for usage
+boundaries. Direct calls can bypass it, and it is not durable audit storage.
