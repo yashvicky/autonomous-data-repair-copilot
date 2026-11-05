@@ -197,3 +197,22 @@ verify the caller-provided reason/confidence, or provide tamper-evident or
 durable transactional logging. An I/O failure can leave a partial new file.
 File permissions depend on the operating system. This is a local export, not
 a production audit trail. Never treat model confidence as measured accuracy.
+
+## Local CSV export bundle
+
+`export_bundle(source_path, frame, review, outcome, report, destination)`
+checks that source data, preview, outcome and report agree, then creates a new
+directory with `original.csv`, `cleaned.csv`, and `repair_report.json`. The
+original copy preserves source bytes. An existing destination is never
+overwritten. The cleaned file contains approved changes and excludes rejected
+changes; no input is modified.
+
+The current CSV loader cannot distinguish null from an empty string, so an
+output containing nulls is rejected instead of silently losing information.
+Source bytes are read twice to detect ordinary changes but this is not an
+atomic snapshot against concurrent writers. A write failure can leave a partial
+new directory; verify all artifacts before use. Local permissions and data
+protection depend on the OS. These files may contain sensitive data; reports
+are caller-attested, not authenticated or tamper-proof. CSV values are preserved
+without spreadsheet formula escaping; opening untrusted CSV in spreadsheet
+software may interpret formulas. This is not a production storage service.
