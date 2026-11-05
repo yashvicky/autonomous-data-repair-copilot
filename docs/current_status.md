@@ -113,11 +113,11 @@ implementing the data-repair engine.
 
 ## In Progress
 
-**DR-024 — Jev entity-match adapter: PARTIAL / AWAITING REVIEW.**
+**DR-024 — Jev entity-match adapter: AWAITING REVIEW.**
 
-The proposed standalone adapter is tested with simulated responses. A live
-call is not verified and requires approved credentials, synthetic data and
-spending authorization. See [acceptance gates](gates/DR-024.md).
+The founder's Windows test returned a live Jev decision for one synthetic pair;
+the standalone adapter and offline tests await review and merge. See
+[acceptance gates](gates/DR-024.md).
 
 **DR-021 — Latency/cost per 100K rows: PARTIAL; AI COMPARISON DEFERRED.**
 
@@ -134,8 +134,8 @@ Do not start it independently.
 
 CSV loader, profiler, detectors, review, local exports, synthetic evaluation,
 regression suite, local benchmark, decision interface and candidate generation
-are merged. A standalone Jev adapter is under review and not live-verified or
-wired into the product workflow. There is no persistent audited service,
+are merged. A standalone Jev adapter is under review; one synthetic live call
+succeeded on Windows. It is not wired into the product workflow. There is no persistent audited service,
 frontend, or production deployment.
 
 ## Locked Architectural Decisions
@@ -161,7 +161,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-024 awaits review and live verification; no live call is authorized yet.
+DR-024 awaits founder review and merge; only one live synthetic case was tested.
 DR-021 AI comparison remains deferred until after provider integration.
 
 ## Current Risks
