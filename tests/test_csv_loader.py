@@ -7,6 +7,7 @@ from data_repair_copilot.csv_loader import CsvLoadError, load_csv
 
 
 @pytest.mark.parametrize("newline", ["\n", "\r\n"], ids=["lf", "crlf"])
+@pytest.mark.regression
 def test_preserves_raw_field_values(tmp_path: Path, newline: str) -> None:
     source = tmp_path / "input.csv"
     content = (
@@ -24,6 +25,7 @@ def test_preserves_raw_field_values(tmp_path: Path, newline: str) -> None:
     ]
 
 
+@pytest.mark.regression
 def test_source_is_not_modified(tmp_path: Path) -> None:
     source = tmp_path / "input.csv"
     original = b'id,value\r\n001,"hello"\r\n'

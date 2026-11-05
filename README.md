@@ -273,3 +273,10 @@ correct reference values: matching dimensions alone cannot establish either.
 The function does not apply repairs, evaluate row insertions or deletions, or
 measure missed repairs. Use independently verified reference data and do not
 interpret this metric as evidence that a repair strategy is safe to automate.
+
+## Regression tests
+
+Run `uv run --locked pytest -q -m regression` for the selected regression suite.
+See [regression tests](docs/regression-tests.md) for covered behavior and the
+process for adding a test and synthetic fixture for each bug fix. Continue to
+run the full test suite before submitting changes.
