@@ -280,3 +280,10 @@ Run `uv run --locked pytest -q -m regression` for the selected regression suite.
 See [regression tests](docs/regression-tests.md) for covered behavior and the
 process for adding a test and synthetic fixture for each bug fix. Continue to
 run the full test suite before submitting changes.
+
+## Local benchmark
+
+Run `uv run --locked python scripts/benchmark_local.py` to measure the synthetic
+100,000-row local ZIP detector workload. See the [benchmark report](evals/benchmarks/DR-021-local.md)
+for the measured scope, results, and limitations. The AI comparison and compute
+cost are not yet measured.
