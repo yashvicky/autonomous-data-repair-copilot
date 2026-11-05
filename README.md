@@ -257,3 +257,19 @@ evaluation scope or the reported scores are misleading. The tiny synthetic
 fixture is a workflow check, not a measure of real-world accuracy. Its category
 labels describe changed cells while the category detector reports groups; that
 detector is excluded until a shared evaluation convention is defined.
+
+## Evaluating false repairs
+
+`evaluation.false_repair.evaluate_false_repairs(before, after, reference)`
+compares actual changed cells with a complete reference dataset. It reports
+counts of changed cells, correct changes, false repairs and their locations.
+The false-repair rate is false repairs divided by all changed cells; it is
+`None` when nothing changed. Unchanged errors and rejected proposals are not
+repairs and do not affect the rate.
+
+All three frames must have the same ordered columns and row count, with string
+or null values. The caller must verify matching row identities and complete,
+correct reference values: matching dimensions alone cannot establish either.
+The function does not apply repairs, evaluate row insertions or deletions, or
+measure missed repairs. Use independently verified reference data and do not
+interpret this metric as evidence that a repair strategy is safe to automate.

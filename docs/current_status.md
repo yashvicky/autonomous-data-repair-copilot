@@ -90,23 +90,27 @@ implementing the data-repair engine.
   Merged in [PR #19](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/19).
   Founder reported 47 tests and Ruff passing on Windows.
 
+- **DR-018 — Precision/recall evaluator: COMPLETE.**
+  Merged in [PR #20](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/20).
+  Founder reported the expected Windows test and Ruff results.
+
 ## In Progress
 
-**DR-018 — Precision/recall evaluator: AWAITING REVIEW.**
+**DR-019 — False-repair metric: AWAITING REVIEW.**
 
-Exact finding counts and per-detector metrics are proposed. See
-[acceptance gates](gates/DR-018.md).
+The proposed evaluator compares changed cells against a complete aligned
+reference. See [acceptance gates](gates/DR-019.md).
 
 ## Next Task
 
-**DR-019 — False-repair metric**, after DR-018 review and merge and assignment.
+**DR-020 — Regression test suite**, after DR-019 review and merge and assignment.
 
 ## Product State
 
-CSV loader, profiler, detectors, issue schema, preview, in-memory decisions,
-local audit and CSV bundle export and synthetic evaluation datasets are merged.
-The precision/recall evaluator is under review. There is no persistent audited service, model integration,
-frontend, production deployment, or unattended development routine.
+The CSV loader, profiler, detectors, issue schema, preview, in-memory decisions,
+local audit and CSV bundle export, synthetic datasets, and detection evaluator
+are merged. The false-repair metric is under review. There is no persistent
+audited service, model integration, frontend, or production deployment.
 
 ## Locked Architectural Decisions
 
@@ -131,7 +135,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-018 awaits founder review and merge; Windows verification is pending.
+DR-019 awaits founder review and merge; Windows verification is pending.
 
 ## Current Risks
 
