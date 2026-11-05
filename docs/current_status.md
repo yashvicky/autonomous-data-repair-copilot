@@ -43,21 +43,26 @@ implementing the data-repair engine.
   Newline test fixed in [PR #8](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/8);
   founder's Windows screenshot shows 9 tests and Ruff passing after the merge.
 
+- **DR-007 — Column profiler: COMPLETE.**
+  Merged in [PR #9](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/9).
+  Founder supplied Windows screenshot showing 12 tests and Ruff passing.
+
 ## In Progress
 
-**DR-007 — Column profiler: AWAITING REVIEW.**
+**DR-008 — Missing/null detector: AWAITING REVIEW.**
 
-Deterministic column profiling and tests are proposed on the DR-007 branch.
-See [acceptance gates](gates/DR-007.md). Founder review and merge are pending.
+A deterministic detector and synthetic tests are proposed on the DR-008 branch.
+See [acceptance gates](gates/DR-008.md). Founder review and merge are pending.
 
 ## Next Task
 
-Choose the next tracker task after DR-007 is reviewed and merged.
+**DR-009 — Exact duplicate detector**, after DR-008 is reviewed and merged
+and DR-009 is assigned.
 
 ## Product State
 
-The CSV loader is merged. A column profiler is under review. There is no
-repair engine, model integration, frontend, or production deployment.
+CSV loader and column profiler are merged. The missing detector is under review.
+There is no repair engine, model integration, frontend, or production deployment.
 No unattended development routine is currently established.
 
 ## Locked Architectural Decisions
@@ -83,7 +88,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-007 awaits founder review and merge.
+DR-008 awaits founder review and merge.
 
 ## Current Risks
 
