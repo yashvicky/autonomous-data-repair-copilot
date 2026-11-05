@@ -68,23 +68,28 @@ implementing the data-repair engine.
   Merged in [PR #14](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/14).
   Founder reported 31 tests and Ruff passing on Windows.
 
+- **DR-013 — Before/after preview engine: COMPLETE.**
+  Merged in [PR #15](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/15).
+  Founder reported Windows checks passed after merge.
+
 ## In Progress
 
-**DR-013 — Before/after preview engine: AWAITING REVIEW.**
+**DR-014 — Approve/reject workflow: AWAITING REVIEW.**
 
-A read-only CSV cell proposal preview is proposed. See
-[acceptance gates](gates/DR-013.md). It does not apply or approve repairs.
+Explicit decisions produce a separate in-memory dataset and in-memory decision
+records. See [acceptance gates](gates/DR-014.md). Persistent audit storage and
+reviewer authentication are not yet implemented.
 
 ## Next Task
 
-**DR-014 — Approve/reject workflow**, after DR-013 review and merge
-and assignment of DR-014.
+**DR-015 — Audit report export**, after DR-014 review and merge
+and assignment of DR-015.
 
 ## Product State
 
-CSV loader, profiler, detectors, and issue schema are merged. The preview
-engine is under review. There is no repair execution, model integration,
-frontend, production deployment, or unattended development routine.
+CSV loader, profiler, detectors, issue schema, and preview are merged.
+In-memory approve/reject workflow is under review. There is no persistent audit,
+model integration, frontend, production deployment, or unattended development.
 
 ## Locked Architectural Decisions
 
@@ -109,7 +114,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-013 awaits founder review and merge.
+DR-014 awaits founder review and merge.
 
 ## Current Risks
 
