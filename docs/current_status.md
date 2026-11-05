@@ -56,24 +56,27 @@ implementing the data-repair engine.
   Founder supplied Windows screenshot showing 20 tests and Ruff passing,
   including the DR-008 tests.
 
+- **DR-010 — Invalid format detector: COMPLETE.**
+  Merged in [PR #12](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/12).
+  Founder reported 24 tests and Ruff passing on Windows.
+
 ## In Progress
 
-**DR-010 — Invalid format detector: AWAITING REVIEW.**
+**DR-011 — Category inconsistency detector: AWAITING REVIEW.**
 
-A read-only format-policy detector and synthetic tests are proposed on the
-DR-010 branch. See [acceptance gates](gates/DR-010.md).
+A read-only detector groups case/whitespace variants and explicitly supplied
+aliases. See [acceptance gates](gates/DR-011.md).
 
 ## Next Task
 
-**DR-011 — Category inconsistency detector**, after DR-010 review and merge
-and assignment of DR-011.
+**DR-012 — Issue object schema**, after DR-011 is reviewed and merged
+and DR-012 is assigned.
 
 ## Product State
 
-CSV loader, profiler, missing detector, and exact duplicate detector are merged.
-Format-policy detection is under review. There is no repair engine, model
-integration, frontend, or production deployment. No unattended development
-routine is established.
+CSV loader, profiler, missing, duplicate, and format detectors are merged.
+Category detection is under review. No repair engine, model integration,
+frontend, production deployment, or unattended development routine exists.
 
 ## Locked Architectural Decisions
 
@@ -98,7 +101,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-010 awaits founder review and merge.
+DR-011 awaits founder review and merge.
 
 ## Current Risks
 

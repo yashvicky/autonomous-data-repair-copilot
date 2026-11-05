@@ -124,3 +124,17 @@ skipped; pass exact `missing_markers` to change the string markers. Non-string
 values are reported separately; whitespace is not trimmed. A mismatch is not
 proof an address, number, or postal code is invalid. No repair is performed.
 Reports retain matching row positions in memory and may be sensitive.
+
+## Category inconsistency detector
+
+`detect_category_variants(frame, column="status")` groups distinct original
+strings that share a comparison key after Unicode case-folding and whitespace
+collapsing. Each variant includes its exact original value and zero-based data
+row indices. Nulls and whitespace-only strings are skipped. Repeated identical
+strings alone do not produce an inconsistency group.
+
+Provide explicit aliases, for example `aliases={"US": "United States"}`, to
+group additional variants. Conflicting normalized aliases and alias chains are
+rejected. Alias mapping is a comparison rule, not a verified equivalence; review
+the evidence. No data is changed or repaired. Raw values and row locations in
+the report can be sensitive; grouping all values uses memory.
