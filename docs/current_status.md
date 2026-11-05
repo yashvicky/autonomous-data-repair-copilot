@@ -40,9 +40,10 @@ implementing the data-repair engine.
 
 ## In Progress
 
-**DR-006 — CSV loader: IN PROGRESS / AWAITING REVIEW.**
+**DR-006 — CSV loader: MERGED; Windows test fix awaiting review.**
 
-The implementation and synthetic tests are prepared for human review.
+PR #7 was merged. The founder's Windows run revealed a newline fixture
+failure; a cross-platform regression fix is awaiting review.
 See [DR-006 gates](gates/DR-006.md).
 
 ## Next Task
@@ -82,7 +83,8 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-No product blocker reported; DR-006 awaits human review and merge.
+Windows verification remains open until the newline fix is reviewed, merged,
+and tests are rerun on Windows.
 
 ## Current Risks
 
