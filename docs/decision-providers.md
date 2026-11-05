@@ -13,8 +13,9 @@ always returns `needs_review` and does not invoke a model.
 
 A future Jev or other provider can implement the same protocol. A separate
 entity-match adapter is proposed in `decisions.jev_entity`; it is not wired to
-this protocol or the product workflow and has not been live-verified. It needs
-explicit credentials and spending authorization for a real call. Provider-reported
+this protocol or the product workflow. The founder verified one live synthetic
+Windows call; broader live behavior is unverified. It needs explicit credentials
+and spending authorization for further real calls. Provider-reported
 model metadata is not verified by the generic interface. A real integration must record the exact
 model version for evaluations, apply its own timeout and provenance controls,
 and comply with the project's data and spending fences.
