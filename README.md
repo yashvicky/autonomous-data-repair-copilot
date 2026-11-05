@@ -66,3 +66,15 @@ From the repository root in PowerShell:
 $env:PYTHONPATH = "src"
 uv run --locked python -c 'from data_repair_copilot.csv_loader import load_csv; print(load_csv("example.csv"))'
 ```
+
+## Column profiler
+
+`profile_dataframe(frame)` returns a Pydantic dataset summary and one profile
+per Polars column. Types are actual Polars dtypes, not inferred semantic types.
+Null percentage is null rows / all rows × 100; unique percentage is distinct
+non-null values / non-null rows × 100. A zero denominator returns `None`.
+Empty strings and text such as `NULL` are values, not automatic nulls.
+Samples are the first five distinct non-null values by default; set
+`sample_limit` to change the cap, or zero to omit samples. Samples can
+contain sensitive data, so handle profile output accordingly. The profiler
+reads the full frame and computes exact distinct values in memory.

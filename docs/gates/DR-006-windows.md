@@ -14,5 +14,5 @@ Base commit: 09c1093099018789cb38a8cbda87130bfef50120
   EXPECT: All checks passed!
   EVIDENCE: Linux Python 3.12.14; exit 0; 9 passed; Ruff passed. Windows run pending.
 
-- [ ] G3: Founder reviews the change and Windows test output.
-  EVIDENCE: pending founder review and Windows run.
+- [x] G3: Founder reviews the change and Windows test output.
+  EVIDENCE: Founder merged PR #8 and supplied a Windows screenshot showing 9 passed and Ruff passed.

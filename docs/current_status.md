@@ -38,26 +38,26 @@ implementing the data-repair engine.
   Merged in [PR #5](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/5).
   Linux verification is recorded in the PR; founder reports Windows checks passed.
 
+- **DR-006 — CSV loader: COMPLETE.**
+  Merged in [PR #7](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/7).
+  Newline test fixed in [PR #8](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/8);
+  founder's Windows screenshot shows 9 tests and Ruff passing after the merge.
+
 ## In Progress
 
-**DR-006 — CSV loader: MERGED; Windows test fix awaiting review.**
+**DR-007 — Column profiler: AWAITING REVIEW.**
 
-PR #7 was merged. The founder's Windows run revealed a newline fixture
-failure; a cross-platform regression fix is awaiting review.
-See [DR-006 gates](gates/DR-006.md).
+Deterministic column profiling and tests are proposed on the DR-007 branch.
+See [acceptance gates](gates/DR-007.md). Founder review and merge are pending.
 
 ## Next Task
 
-**DR-006 — CSV loader preserving raw values.**
-
-DR-006 is the active task. Do not mark complete until reviewed and merged.
+Choose the next tracker task after DR-007 is reviewed and merged.
 
 ## Product State
 
-A CSV loader is proposed in the DR-006 branch and awaits review. There is no
-profiler, data-quality detector, repair engine, Jev or Grok runtime
-integration, FastAPI backend, frontend, or production deployment.
-
+The CSV loader is merged. A column profiler is under review. There is no
+repair engine, model integration, frontend, or production deployment.
 No unattended development routine is currently established.
 
 ## Locked Architectural Decisions
@@ -83,8 +83,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-Windows verification remains open until the newline fix is reviewed, merged,
-and tests are rerun on Windows.
+DR-007 awaits founder review and merge.
 
 ## Current Risks
 
