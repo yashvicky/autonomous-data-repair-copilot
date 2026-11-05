@@ -287,3 +287,17 @@ Run `uv run --locked python scripts/benchmark_local.py` to measure the synthetic
 100,000-row local ZIP detector workload. See the [benchmark report](evals/benchmarks/DR-021-local.md)
 for the measured scope, results, and limitations. The AI comparison and compute
 cost are not yet measured.
+
+## Candidate generation
+
+`matching.candidates.generate_candidates(frame, block_columns=[...])` returns
+zero-based row-position pairs that agree exactly on every explicitly selected
+string column. It excludes null and whitespace-only blocking values, preserves
+other values as-is, and does not modify the frame. Pair positions refer only to
+the input in its current order. If the total would exceed `max_pairs` (default
+10,000), it raises rather than returning an incomplete list.
+
+A shared blocking key is only a reason to consider two records: it does not
+confirm they represent the same entity. Exact blocking can miss true matches
+when keys differ; no recall has been established. This function makes no AI
+calls, approval decisions, merges, or repairs.
