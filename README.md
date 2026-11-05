@@ -233,3 +233,27 @@ against committed fixtures and checks the labels against the data. Git
 attributes preserve fixture bytes across platforms. The tiny synthetic set is
 a regression fixture, not evidence of production accuracy or representative
 customer data. Do not replace these fixtures with real customer data.
+
+## Evaluating detector findings
+
+`evaluation.metrics.evaluate_detectors` compares explicitly supplied findings
+per detector. A `Finding(kind, column, row_indices)` identifies one finding;
+row positions are zero-based, and duplicate groups match only when the full
+group matches (row order does not matter). Both mappings must include the same
+detector names. Duplicate findings are rejected.
+
+```python
+from data_repair_copilot.evaluation.metrics import Finding, evaluate_detectors
+
+finding = Finding("missing_value", "email", (4,))
+results = evaluate_detectors({"missing": [finding]}, {"missing": [finding]})
+assert results["missing"].precision == 1.0
+assert results["missing"].recall == 1.0
+```
+
+Precision is TP / (TP + FP); recall is TP / (TP + FN). Each is `None`
+when its denominator is zero. Ground truth must be complete for the chosen
+evaluation scope or the reported scores are misleading. The tiny synthetic
+fixture is a workflow check, not a measure of real-world accuracy. Its category
+labels describe changed cells while the category detector reports groups; that
+detector is excluded until a shared evaluation convention is defined.
