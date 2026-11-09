@@ -25,3 +25,22 @@ repaired export. Multipart form upload is not supported.
 The CSV parser preserves identifiers and quoted newlines according to the
 existing loader. Results contain row positions, not stable record identifiers.
 Capacity, memory use and responsiveness are not production benchmarks.
+
+## Local review and export prototype
+
+`POST /uploads/{upload_id}/previews` accepts `proposals` and creates an
+in-memory review snapshot. `POST /reviews/{review_id}/decisions` accepts one
+approve/reject decision and caller-supplied metadata per change. After that,
+`GET /reviews/{review_id}/audit` returns a local report and
+`GET /reviews/{review_id}/export` returns a new CSV. The source bytes remain
+unchanged. CSV export fails when a reviewed result contains null values, because
+CSV cannot distinguish null from an empty string. Up to 32 review snapshots
+are held in process memory; all are lost on process exit.
+
+**This is a simulation for local synthetic data, not authenticated human
+approval.** Any caller with access to the service can submit decisions and
+claim any reviewer name. The audit report is caller-attested, not durable,
+authenticated, or tamper-evident. The service has no tenant isolation or
+production security; do not expose it on a network or use customer data.
+The original export bundle is a separate local file operation; these endpoints
+return a CSV and an audit JSON response rather than that bundle.
