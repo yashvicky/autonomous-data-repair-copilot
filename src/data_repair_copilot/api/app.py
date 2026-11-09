@@ -2,6 +2,7 @@
 
 import csv
 import io
+from pathlib import Path
 from threading import Lock
 from uuid import UUID, uuid4
 
@@ -12,6 +13,7 @@ from data_repair_copilot.audit.report import DecisionMetadata, build_audit_repor
 from data_repair_copilot.csv_loader import CsvLoadError, load_csv_bytes
 from data_repair_copilot.detectors.duplicates import detect_duplicates
 from data_repair_copilot.detectors.missing import detect_missing
+from data_repair_copilot.profiler import profile_dataframe
 from data_repair_copilot.repairs.approval import Decision, apply_decisions, create_review
 from data_repair_copilot.repairs.preview import CellProposal
 
@@ -37,6 +39,20 @@ def create_app() -> FastAPI:
     uploads: dict[UUID, bytes] = {}
     lock = Lock()
     reviews: dict[UUID, dict] = {}
+
+    @app.get("/", response_class=Response)
+    def overview_screen() -> Response:
+        html = (Path(__file__).parent / "static" / "overview.html").read_text(encoding="utf-8")
+        return Response(content=html, media_type="text/html")
+
+    @app.get("/uploads/{upload_id}/profile")
+    def get_profile(upload_id: UUID) -> dict:
+        with lock:
+            content = uploads.get(upload_id)
+        if content is None:
+            raise HTTPException(status_code=404, detail="Upload not found")
+        frame = load_csv_bytes(content)
+        return profile_dataframe(frame, sample_limit=0).model_dump(mode="json")
 
     @app.post("/uploads", status_code=201)
     async def upload_csv(request: Request) -> dict:

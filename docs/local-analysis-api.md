@@ -44,3 +44,13 @@ authenticated, or tamper-evident. The service has no tenant isolation or
 production security; do not expose it on a network or use customer data.
 The original export bundle is a separate local file operation; these endpoints
 return a CSV and an audit JSON response rather than that bundle.
+
+## Local upload and overview
+
+Open `http://127.0.0.1:8000/` after starting the local server to select a
+synthetic CSV and view the row count, columns, distinct values and findings.
+The screen calls the raw CSV upload, profile, and analysis endpoints; it does
+not show raw sample values. `GET /uploads/{upload_id}/profile` returns the
+existing deterministic profile with samples disabled. Actual nulls are counted
+separately from empty strings, which are reported as missing by the detector.
+This browser interface has no authentication or customer-data protections.
