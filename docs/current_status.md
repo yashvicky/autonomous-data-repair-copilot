@@ -1,6 +1,6 @@
 # Current Project Status
 
-Last updated: 2026-11-05 (UTC)
+Last updated: 2026-11-09 (UTC)
 
 ## Project
 
@@ -118,23 +118,25 @@ implementing the data-repair engine.
 
 ## In Progress
 
-**DR-027 — Upload and analysis API: PARTIAL / AWAITING REVIEW.**
+**DR-027 — Upload and analysis API: PARTIAL / MERGED WITHOUT REVIEW.**
 
-A local synchronous, in-memory raw-CSV prototype is proposed; production
-security and durable job handling are absent. See [acceptance gates](gates/DR-027.md).
+A local synchronous, in-memory raw-CSV prototype was merged in [PR #29](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/29);
+production security and durable job handling are absent. The owner reports it
+was merged without review. See [acceptance gates](gates/DR-027.md).
 
-**DR-026 — Explanation provider: PARTIAL / AWAITING REVIEW.**
+**DR-026 — Explanation provider: PARTIAL / MERGED WITHOUT REVIEW.**
 
 Founder reported 74 tests and Ruff passing on Windows for
 [PR #28](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/28),
-which remains open. Real Grok transport and live verification are outstanding.
+which was merged without review, according to the owner. Real Grok transport
+and live verification are outstanding.
 
-**DR-025 — Decision ledger: PARTIAL / AWAITING REVIEW.**
+**DR-025 — Decision ledger: PARTIAL / MERGED WITHOUT REVIEW.**
 
 Founder reported 74 tests and Ruff passing on Windows for
 [PR #27](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/27),
-which remains open. Universal durable logging, verified cost and actual
-escalation remain unmet.
+which was merged without review, according to the owner. Universal durable
+logging, verified cost and actual escalation remain unmet.
 
 **DR-021 — Latency/cost per 100K rows: PARTIAL; AI COMPARISON DEFERRED.**
 
@@ -150,7 +152,8 @@ explicitly assigned. Do not start independently.
 
 The standalone Jev adapter and candidate generation are merged; the Jev
 adapter has one synthetic live test but is not wired into a product workflow.
-The ledger, explanation provider, and local API prototype are under review.
+The partial ledger, explanation provider, and local API prototype are merged
+without owner review.
 There is no live Grok integration, persistent audited service, frontend,
 or production deployment.
 
@@ -178,7 +181,7 @@ authoritative; this summary does not replace them.
 ## Current Blockers
 
 DR-027 lacks production authentication, tenant isolation and durable jobs.
-DR-025 and DR-026 remain incomplete and their PRs are open.
+DR-025, DR-026, and DR-027 remain incomplete and require review; their PRs are merged.
 DR-021 AI comparison remains deferred.
 
 ## Current Risks
