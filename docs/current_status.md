@@ -118,6 +118,12 @@ implementing the data-repair engine.
 
 ## In Progress
 
+**DR-028 — Review and export API: PARTIAL / AWAITING REVIEW.**
+
+A local synthetic-data workflow is proposed. It has no authenticated reviewers,
+tenant isolation, or durable audit; see [acceptance gates](gates/DR-028.md).
+The owner reported the merged-main Windows checks: 81 tests and Ruff passed.
+
 **DR-027 — Upload and analysis API: PARTIAL / MERGED WITHOUT REVIEW.**
 
 A local synchronous, in-memory raw-CSV prototype was merged in [PR #29](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/29);
@@ -145,7 +151,7 @@ The AI comparison remains deferred and unmeasured.
 
 ## Next Task
 
-**DR-028 — Preview/approve/export endpoints**, after DR-027 is resolved and
+**DR-029 — Upload and overview screen**, after DR-028 is resolved and
 explicitly assigned. Do not start independently.
 
 ## Product State
@@ -153,7 +159,7 @@ explicitly assigned. Do not start independently.
 The standalone Jev adapter and candidate generation are merged; the Jev
 adapter has one synthetic live test but is not wired into a product workflow.
 The partial ledger, explanation provider, and local API prototype are merged
-without owner review.
+without owner review. A local review/export prototype is under review.
 There is no live Grok integration, persistent audited service, frontend,
 or production deployment.
 
@@ -180,6 +186,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
+DR-028 lacks authenticated reviewers and durable audit; its PR is under review.
 DR-027 lacks production authentication, tenant isolation and durable jobs.
 DR-025, DR-026, and DR-027 remain incomplete and require review; their PRs are merged.
 DR-021 AI comparison remains deferred.
