@@ -105,43 +105,38 @@ implementing the data-repair engine.
 - **DR-022 — Decision provider interface: COMPLETE for interface and stub.**
   Merged in [PR #24](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/24).
   Founder reported 62 tests and Ruff passed on Windows after PRs #23 and #24.
-  At that milestone, the Jev adapter was not yet implemented.
+  The Jev adapter is not yet implemented.
 
 - **DR-023 — Candidate generation baseline: COMPLETE.**
   Merged in [PR #25](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/25).
   Founder reported 66 tests and Ruff passed on Windows.
 
-- **DR-024 — Jev entity-match adapter: COMPLETE for standalone scope.**
-  Merged in [PR #26](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/26).
-  Founder screenshot showed 70 tests and Ruff passing on Windows, and one
-  authorized live synthetic call returned a Jev decision. The adapter is not
-  wired into the product workflow; one call does not establish accuracy.
-
 ## In Progress
 
-**DR-025 — Decision ledger: PARTIAL / AWAITING REVIEW.**
+**DR-024 — Jev entity-match adapter: AWAITING REVIEW.**
 
-A metadata-only in-memory wrapper is proposed. Universal, durable logging,
-verified costs, and actual escalation remain unmet. See
-[acceptance gates](gates/DR-025.md) and [ledger limitations](decision-ledger.md).
+The founder's Windows test returned a live Jev decision for one synthetic pair;
+the standalone adapter and offline tests await review and merge. See
+[acceptance gates](gates/DR-024.md).
 
 **DR-021 — Latency/cost per 100K rows: PARTIAL; AI COMPARISON DEFERRED.**
 
 The local baseline was merged in [PR #23](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/23).
-The AI comparison remains deferred pending an approved comparable workload.
-No AI cost or latency has been measured.
+The AI comparison remains deferred until after provider integration and an
+approved comparable workload. No AI cost or latency has been measured.
 
 ## Next Task
 
-**DR-026 — Why-suspicious explanation provider**, after DR-025 is resolved and
-explicitly assigned. Do not start it independently.
+**DR-025 — Decision ledger**, after DR-024 is resolved and explicitly assigned.
+Do not start it independently.
 
 ## Product State
 
-The standalone Jev adapter and candidate generation are merged. One synthetic
-live Jev call succeeded, but the adapter is not wired to the product workflow.
-The proposed ledger is in-memory and under review. There is no durable audited
-service, frontend, or production deployment.
+CSV loader, profiler, detectors, review, local exports, synthetic evaluation,
+regression suite, local benchmark, decision interface and candidate generation
+are merged. A standalone Jev adapter is under review; one synthetic live call
+succeeded on Windows. It is not wired into the product workflow. There is no persistent audited service,
+frontend, or production deployment.
 
 ## Locked Architectural Decisions
 
@@ -166,8 +161,8 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-025 lacks universal durable logging and verified billing data; local work awaits review.
-DR-021 AI comparison remains deferred.
+DR-024 awaits founder review and merge; only one live synthetic case was tested.
+DR-021 AI comparison remains deferred until after provider integration.
 
 ## Current Risks
 
