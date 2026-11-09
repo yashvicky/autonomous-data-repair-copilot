@@ -105,38 +105,54 @@ implementing the data-repair engine.
 - **DR-022 — Decision provider interface: COMPLETE for interface and stub.**
   Merged in [PR #24](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/24).
   Founder reported 62 tests and Ruff passed on Windows after PRs #23 and #24.
-  The Jev adapter is not yet implemented.
+  At that milestone the Jev adapter was not yet implemented.
 
 - **DR-023 — Candidate generation baseline: COMPLETE.**
   Merged in [PR #25](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/25).
   Founder reported 66 tests and Ruff passed on Windows.
 
+- **DR-024 — Jev entity-match adapter: COMPLETE for standalone scope.**
+  Merged in [PR #26](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/26).
+  Founder screenshot showed 70 tests and Ruff passed on Windows; one authorized
+  synthetic live call returned a decision. Product integration remains future work.
+
 ## In Progress
 
-**DR-024 — Jev entity-match adapter: AWAITING REVIEW.**
+**DR-027 — Upload and analysis API: PARTIAL / AWAITING REVIEW.**
 
-The founder's Windows test returned a live Jev decision for one synthetic pair;
-the standalone adapter and offline tests await review and merge. See
-[acceptance gates](gates/DR-024.md).
+A local synchronous, in-memory raw-CSV prototype is proposed; production
+security and durable job handling are absent. See [acceptance gates](gates/DR-027.md).
+
+**DR-026 — Explanation provider: PARTIAL / AWAITING REVIEW.**
+
+Founder reported 74 tests and Ruff passing on Windows for
+[PR #28](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/28),
+which remains open. Real Grok transport and live verification are outstanding.
+
+**DR-025 — Decision ledger: PARTIAL / AWAITING REVIEW.**
+
+Founder reported 74 tests and Ruff passing on Windows for
+[PR #27](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/27),
+which remains open. Universal durable logging, verified cost and actual
+escalation remain unmet.
 
 **DR-021 — Latency/cost per 100K rows: PARTIAL; AI COMPARISON DEFERRED.**
 
 The local baseline was merged in [PR #23](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/23).
-The AI comparison remains deferred until after provider integration and an
-approved comparable workload. No AI cost or latency has been measured.
+The AI comparison remains deferred and unmeasured.
 
 ## Next Task
 
-**DR-025 — Decision ledger**, after DR-024 is resolved and explicitly assigned.
-Do not start it independently.
+**DR-028 — Preview/approve/export endpoints**, after DR-027 is resolved and
+explicitly assigned. Do not start independently.
 
 ## Product State
 
-CSV loader, profiler, detectors, review, local exports, synthetic evaluation,
-regression suite, local benchmark, decision interface and candidate generation
-are merged. A standalone Jev adapter is under review; one synthetic live call
-succeeded on Windows. It is not wired into the product workflow. There is no persistent audited service,
-frontend, or production deployment.
+The standalone Jev adapter and candidate generation are merged; the Jev
+adapter has one synthetic live test but is not wired into a product workflow.
+The ledger, explanation provider, and local API prototype are under review.
+There is no live Grok integration, persistent audited service, frontend,
+or production deployment.
 
 ## Locked Architectural Decisions
 
@@ -161,8 +177,9 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-024 awaits founder review and merge; only one live synthetic case was tested.
-DR-021 AI comparison remains deferred until after provider integration.
+DR-027 lacks production authentication, tenant isolation and durable jobs.
+DR-025 and DR-026 remain incomplete and their PRs are open.
+DR-021 AI comparison remains deferred.
 
 ## Current Risks
 
