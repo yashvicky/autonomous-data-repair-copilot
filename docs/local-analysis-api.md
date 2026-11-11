@@ -54,3 +54,13 @@ not show raw sample values. `GET /uploads/{upload_id}/profile` returns the
 existing deterministic profile with samples disabled. Actual nulls are counted
 separately from empty strings, which are reported as missing by the detector.
 This browser interface has no authentication or customer-data protections.
+
+## Local access guard
+
+The application rejects requests whose direct ASGI client is not loopback,
+whose `Host` is not localhost, 127.0.0.1, or [::1], whose Origin (when
+present) is not the exact same origin, or which include forwarded proxy
+headers. Run it directly on 127.0.0.1; reverse proxies are unsupported.
+This guard enforces a narrower local prototype boundary. It does not identify
+users, secure other local processes, isolate tenants, provide durable audit,
+or make the prototype safe for customer data or production deployment.

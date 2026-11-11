@@ -6,7 +6,9 @@ from data_repair_copilot.api.app import create_app
 
 
 def test_overview_screen() -> None:
-    response = TestClient(create_app()).get("/")
+    response = TestClient(
+        create_app(), base_url="http://localhost", client=("127.0.0.1", 50000)
+    ).get("/")
     assert response.status_code == 200
     assert response.headers["content-type"].startswith("text/html")
     assert "Select a CSV file" in response.text
@@ -15,7 +17,7 @@ def test_overview_screen() -> None:
 
 
 def test_profile() -> None:
-    client = TestClient(create_app())
+    client = TestClient(create_app(), base_url="http://localhost", client=("127.0.0.1", 50000))
     upload = client.post(
         "/uploads", content=b"id,zip\n001,00501\n002,\n002,\n", headers={"content-type": "text/csv"}
     )
@@ -35,7 +37,7 @@ def test_profile() -> None:
 
 
 def test_invalid_profile_requests() -> None:
-    client = TestClient(create_app())
+    client = TestClient(create_app(), base_url="http://localhost", client=("127.0.0.1", 50000))
     assert client.get(f"/uploads/{uuid4()}/profile").status_code == 404
     assert client.get("/uploads/not-a-uuid/profile").status_code == 422
     assert (

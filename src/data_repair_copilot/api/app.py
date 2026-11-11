@@ -2,11 +2,14 @@
 
 import csv
 import io
+import ipaddress
+import re
 from pathlib import Path
 from threading import Lock
 from uuid import UUID, uuid4
 
 from fastapi import FastAPI, HTTPException, Request, Response
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ConfigDict, Field
 
 from data_repair_copilot.audit.report import DecisionMetadata, build_audit_report
@@ -20,6 +23,7 @@ from data_repair_copilot.repairs.preview import CellProposal
 _MAX_BYTES = 1_000_000
 _MAX_UPLOADS = 16
 _MAX_REVIEWS = 32
+_LOCAL_HOST = re.compile(r"(?:localhost|127\.0\.0\.1|\[::1\])(?::([0-9]{1,5}))?\Z")
 
 
 class PreviewInput(BaseModel):
@@ -39,6 +43,34 @@ def create_app() -> FastAPI:
     uploads: dict[UUID, bytes] = {}
     lock = Lock()
     reviews: dict[UUID, dict] = {}
+
+    @app.middleware("http")
+    async def local_only(request: Request, call_next):
+        """Reject direct non-loopback and untrusted browser/proxy requests."""
+        host = request.headers.get("host", "").lower()
+        match = _LOCAL_HOST.fullmatch(host)
+        try:
+            peer = ipaddress.ip_address(request.client.host if request.client else "")
+            valid_peer = peer.is_loopback
+        except ValueError:
+            valid_peer = False
+        port = int(match.group(1)) if match and match.group(1) else None
+        forwarded = any(
+            key == "forwarded" or key == "x-real-ip" or key.startswith("x-forwarded-")
+            for key in request.headers
+        )
+        origin = request.headers.get("origin")
+        if (
+            not valid_peer
+            or len(request.headers.getlist("host")) != 1
+            or len(request.headers.getlist("origin")) > 1
+            or not match
+            or (port is not None and not 1 <= port <= 65535)
+            or forwarded
+            or (origin is not None and origin != f"{request.url.scheme}://{host}")
+        ):
+            return JSONResponse(status_code=403, content={"detail": "Local access only"})
+        return await call_next(request)
 
     @app.get("/", response_class=Response)
     def overview_screen() -> Response:

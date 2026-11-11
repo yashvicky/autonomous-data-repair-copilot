@@ -38,7 +38,7 @@ def decisions():
 
 
 def test_local_review_workflow() -> None:
-    client = TestClient(create_app())
+    client = TestClient(create_app(), base_url="http://localhost", client=("127.0.0.1", 50000))
     upload_id, review = setup_review(client)
     assert client.get(f"/reviews/{review}/export").status_code == 409
     assert client.post(f"/reviews/{review}/decisions", json=decisions()).status_code == 200
@@ -55,7 +55,7 @@ def test_local_review_workflow() -> None:
 
 
 def test_invalid_decisions() -> None:
-    client = TestClient(create_app())
+    client = TestClient(create_app(), base_url="http://localhost", client=("127.0.0.1", 50000))
     assert client.get(f"/reviews/{uuid4()}/audit").status_code == 404
     _, review = setup_review(client)
     data = decisions()
@@ -66,7 +66,7 @@ def test_invalid_decisions() -> None:
 
 
 def test_null_export() -> None:
-    client = TestClient(create_app())
+    client = TestClient(create_app(), base_url="http://localhost", client=("127.0.0.1", 50000))
     _, review = setup_review(client, replacement=None)
     assert client.post(f"/reviews/{review}/decisions", json=decisions()).status_code == 200
     assert client.get(f"/reviews/{review}/export").status_code == 409

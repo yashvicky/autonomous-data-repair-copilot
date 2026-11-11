@@ -6,7 +6,7 @@ from data_repair_copilot.api.app import create_app
 
 
 def test_upload_and_analysis() -> None:
-    client = TestClient(create_app())
+    client = TestClient(create_app(), base_url="http://localhost", client=("127.0.0.1", 50000))
     content = b'id,zip,note\r\n001,00501,"hello\r\nworld"\r\n002,,x\r\n002,,x\r\n'
     upload = client.post("/uploads", content=content, headers={"content-type": "text/csv"})
     assert upload.status_code == 201
@@ -21,7 +21,7 @@ def test_upload_and_analysis() -> None:
 
 
 def test_invalid_upload() -> None:
-    client = TestClient(create_app())
+    client = TestClient(create_app(), base_url="http://localhost", client=("127.0.0.1", 50000))
     assert (
         client.post(
             "/uploads", content=b"id\n\xff\n", headers={"content-type": "text/csv"}
@@ -43,7 +43,7 @@ def test_invalid_upload() -> None:
 
 
 def test_unknown_job() -> None:
-    client = TestClient(create_app())
+    client = TestClient(create_app(), base_url="http://localhost", client=("127.0.0.1", 50000))
     assert client.post("/analyses/" + str(uuid4())).status_code == 404
     assert client.post("/analyses/invalid").status_code == 422
     a = client.post("/uploads", content=b"id\n001\n", headers={"content-type": "text/csv"}).json()
