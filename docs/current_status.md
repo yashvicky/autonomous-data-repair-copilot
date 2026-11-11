@@ -1,6 +1,6 @@
 # Current Project Status
 
-Last updated: 2026-11-09 (UTC)
+Last updated: 2026-11-11 (UTC)
 
 ## Project
 
@@ -118,17 +118,18 @@ implementing the data-repair engine.
 
 ## In Progress
 
-**DR-029 — Upload and overview screen: PARTIAL / AWAITING REVIEW.**
+**DR-029 — Upload and overview screen: PARTIAL / MERGED.**
 
-A local synthetic-data screen and profile endpoint are proposed. Browser
-visual verification and production controls remain pending. See
+The local synthetic-data screen and profile endpoint were merged in
+[PR #33](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/33).
+The assistant visually verified one synthetic upload and overview; production
+controls remain pending. See
 [acceptance gates](gates/DR-029.md).
 
-**DR-028 — Review and export API: PARTIAL / AWAITING REVIEW.**
+**DR-028 — Review and export API: PARTIAL / MERGED.**
 
-A local synthetic-data workflow was merged to a staging branch, not main;
-[PR #32](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/32)
-proposes bringing it to main. It has no authenticated reviewers, tenant
+The local synthetic-data workflow was merged to main in
+[PR #32](https://github.com/yashvicky/autonomous-data-repair-copilot/pull/32). It has no authenticated reviewers, tenant
 isolation, or durable audit; see [acceptance gates](gates/DR-028.md).
 The owner reported 84 tests and Ruff passed on the DR-028 Windows branch.
 
@@ -159,16 +160,19 @@ The AI comparison remains deferred and unmeasured.
 
 ## Next Task
 
-**Later tasks:** resolve and review DR-028 and DR-029 before moving on.
+**Security work:** review the proposed local-only access guard, then implement
+production authentication, tenant isolation, secure uploads and durable audit
+before any customer use. See the [proposed security work](security-readiness.md).
+DR-028 and DR-029 remain partial.
 
 ## Product State
 
 The standalone Jev adapter and candidate generation are merged; the Jev
 adapter has one synthetic live test but is not wired into a product workflow.
 The partial ledger, explanation provider, and local API prototype are merged
-without owner review. Local review/export and upload/overview prototypes are under review.
-There is no live Grok integration, persistent audited service, frontend,
-or production deployment.
+without owner review. Local review/export and upload/overview prototypes are merged.
+There is a local prototype screen; no live Grok integration, persistent
+audited service, or production deployment exists.
 
 ## Locked Architectural Decisions
 
@@ -193,8 +197,8 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-028 is not on main and lacks authenticated reviewers and durable audit.
-DR-029 needs browser verification and production controls.
+DR-028 lacks authenticated reviewers and durable audit.
+DR-029 needs production controls; one synthetic browser flow was verified.
 DR-027 lacks production authentication, tenant isolation and durable jobs.
 DR-025, DR-026, and DR-027 remain incomplete and require review; their PRs are merged.
 DR-021 AI comparison remains deferred.
