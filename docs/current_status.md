@@ -120,11 +120,10 @@ implementing the data-repair engine.
 
 **DR-041 — Authentication and tenant isolation: DESIGN / BLOCKED.**
 
-The owner requested the next security step. A provider-neutral OIDC and
-server-enforced tenant-isolation design is proposed in
-[DR-041 design](dr-041-identity-design.md). Identity provider, tenant/role
-model and durable storage architecture require owner approval before
-implementation. See [acceptance gates](gates/DR-041.md).
+The owner requested the next security step. An individual-account and
+server-enforced ownership design is proposed in [DR-041 design](dr-041-identity-design.md).
+Identity provider and durable storage require owner approval; organization
+sharing and roles are deferred. See [acceptance gates](gates/DR-041.md).
 
 **DR-029 — Upload and overview screen: PARTIAL / MERGED.**
 
@@ -205,7 +204,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
-DR-041 requires owner decisions on identity provider, tenant roles and storage.
+DR-041 requires owner decisions on account provider and durable storage.
 DR-028 lacks authenticated reviewers and durable audit.
 DR-029 needs production controls; one synthetic browser flow was verified.
 DR-027 lacks production authentication, tenant isolation and durable jobs.
