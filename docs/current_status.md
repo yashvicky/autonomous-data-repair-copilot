@@ -118,6 +118,13 @@ implementing the data-repair engine.
 
 ## In Progress
 
+**DR-041 — Authentication and tenant isolation: DESIGN / BLOCKED.**
+
+The owner requested the next security step. An individual-account and
+server-enforced ownership design is proposed in [DR-041 design](dr-041-identity-design.md).
+Identity provider and durable storage require owner approval; organization
+sharing and roles are deferred. See [acceptance gates](gates/DR-041.md).
+
 **DR-029 — Upload and overview screen: PARTIAL / MERGED.**
 
 The local synthetic-data screen and profile endpoint were merged in
@@ -160,8 +167,8 @@ The AI comparison remains deferred and unmeasured.
 
 ## Next Task
 
-**Security work:** review the proposed local-only access guard, then implement
-production authentication, tenant isolation, secure uploads and durable audit
+**Security work:** select and approve the DR-041 identity and tenant design,
+then implement and verify it along with secure uploads and durable audit
 before any customer use. See the [proposed security work](security-readiness.md).
 DR-028 and DR-029 remain partial.
 
@@ -197,6 +204,7 @@ authoritative; this summary does not replace them.
 
 ## Current Blockers
 
+DR-041 requires owner decisions on account provider and durable storage.
 DR-028 lacks authenticated reviewers and durable audit.
 DR-029 needs production controls; one synthetic browser flow was verified.
 DR-027 lacks production authentication, tenant isolation and durable jobs.

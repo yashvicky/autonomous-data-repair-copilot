@@ -25,5 +25,5 @@ Base commit: f0f1f05f9b51a81229ad0e2d8edcc8a700efe780
 - [ ] G5: Production authentication, authorization, tenant isolation, upload lifecycle and durable auditing are independently verified.
   EVIDENCE: pending; local access guard does not implement production controls.
 
-- [ ] G6: Founder reviews and merges.
-  EVIDENCE: pending founder review.
+- [x] G6: Founder merges.
+  EVIDENCE: PR #34 merged; founder reported 89 tests and Ruff passed on Windows. Independent security review remains pending.
